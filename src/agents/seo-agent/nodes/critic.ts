@@ -20,7 +20,7 @@ export async function seoCritiqueNode(state: SEOAgentState): Promise<Partial<SEO
   console.log("--> [Node: Critic] Analyzing draft for SEO...");
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4o",
+    model: "gpt-4o-mini",
     messages: [
       { 
         role: "system", 
