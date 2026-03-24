@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { set } from "zod/v3";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -22,21 +23,6 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
 });
-
-const propertyItems = [
-  {
-    name: "1240 Laurel Way - $9.8M",
-    details: "5 BD - 6 BA - Pool - Canyon Views",
-  },
-  {
-    name: "720 N Rexford Dr - $11.2M",
-    details: "4 BD - 5 BA - Infinity Pool - City Views",
-  },
-  {
-    name: "9955 Hidden Valley Rd - $8.5M",
-    details: "4 BD - 4 BA - Heated Pool - Mountain Views",
-  },
-];
 
 const suggestions: Array<{ icon: typeof MapPin; label: string }> = [
   { icon: MapPin, label: "Show map view" },
@@ -51,6 +37,17 @@ type ChatMessage = {
   role: ChatRole;
   text: string;
   time: string;
+  properties?: PropertyListing[];
+};
+
+type PropertyListing = {
+  id: string;
+  address: string;
+  location: string;
+  bedrooms: number;
+  bathrooms: number;
+  priceLabel: string;
+  features: string[];
 };
 
 const initialMessages: ChatMessage[] = [
@@ -59,18 +56,6 @@ const initialMessages: ChatMessage[] = [
     role: "assistant",
     text: "Good morning! I'm Aria, your personal real estate intelligence agent. I have access to thousands of luxury listings across prime markets. How may I assist you today?",
     time: "9:41 AM",
-  },
-  {
-    id: "u1",
-    role: "user",
-    text: "I'm looking for a 4-bedroom modern home in Beverly Hills with a pool and mountain views. Budget is around $8-12 million.",
-    time: "9:43 AM",
-  },
-  {
-    id: "a2",
-    role: "assistant",
-    text: "Excellent taste. I've found 3 exceptional properties matching your criteria in Beverly Hills and Bel Air. Here's a curated summary:",
-    time: "9:44 AM",
   },
 ];
 
@@ -84,53 +69,25 @@ function formatTime() {
 export default function AriaPage() {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  const [isTyping, setIsTyping] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    const id = window.setTimeout(() => setIsTyping(false), 1400);
-    return () => window.clearTimeout(id);
-  }, []);
-
-  useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, isTyping]);
 
-  const sendMessage = (text: string) => {
-    const trimmed = text.trim();
-    if (!trimmed) return;
-
+  const sendMessage = async (text: string) => {
     setMessages((prev) => [
       ...prev,
-      {
-        id: crypto.randomUUID(),
-        role: "user",
-        text: trimmed,
-        time: formatTime(),
-      },
+      { id: `u-${Date.now()}`, role: "user", text, time: formatTime() },
     ]);
-    setInput("");
-    setIsTyping(true);
-
-    window.setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          text: `Great request. I can shortlist options for "${trimmed}". Would you like me to prioritize schools, commute time, or investment upside first?`,
-          time: formatTime(),
-        },
-      ]);
-      setIsTyping(false);
-    }, 900);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    sendMessage(input);
+    void sendMessage(input);
   };
 
   const handleSuggestion = (label: string) => {
@@ -138,9 +95,9 @@ export default function AriaPage() {
     inputRef.current?.focus();
   };
 
-  const handlePropertySelect = (name: string) => {
-    setSelectedProperty(name);
-    setInput(`Tell me more about ${name}.`);
+  const handlePropertySelect = (propertyAddress: string) => {
+    setSelectedProperty(propertyAddress);
+    setInput(`Tell me more about ${propertyAddress}.`);
     inputRef.current?.focus();
   };
 
@@ -267,25 +224,40 @@ export default function AriaPage() {
                           : "text-[15px] leading-[1.7] font-medium text-white"
                       }
                     >
-                      {message.text}
+                      {message.text ||
+                        (isTyping && message.role === "assistant"
+                          ? "Aria is thinking"
+                          : "")}
                     </p>
 
-                    {message.id === "a2" ? (
+                    {!message.text &&
+                    isTyping &&
+                    message.role === "assistant" ? (
+                      <div className="mt-2 inline-flex items-center gap-1.5 text-[#737373]">
+                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#737373] [animation-delay:-0.3s]" />
+                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#737373] [animation-delay:-0.15s]" />
+                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#737373]" />
+                      </div>
+                    ) : null}
+
+                    {message.role === "assistant" &&
+                    message.properties?.length ? (
                       <div className="mt-2.5 flex flex-col gap-2">
-                        {propertyItems.map((item) => (
+                        {message.properties.map((item) => (
                           <button
-                            key={item.name}
+                            key={item.id}
                             type="button"
-                            onClick={() => handlePropertySelect(item.name)}
-                            className={`flex w-full items-center gap-2.5 rounded-[6px] border px-3 py-2.5 text-left transition ${selectedProperty === item.name ? "border-[#111111] bg-[#E8E8E8]" : "border-[#D4D4D4] bg-[#F5F5F5]"}`}
+                            onClick={() => handlePropertySelect(item.address)}
+                            className={`flex w-full items-center gap-2.5 rounded-[6px] border px-3 py-2.5 text-left transition ${selectedProperty === item.address ? "border-[#111111] bg-[#E8E8E8]" : "border-[#D4D4D4] bg-[#F5F5F5]"}`}
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-[#111111]" />
                             <div className="flex-1">
                               <p className="text-[13px] font-medium text-[#111111]">
-                                {item.name}
+                                {item.address} - {item.priceLabel}
                               </p>
                               <p className="text-xs text-[#525252]">
-                                {item.details}
+                                {item.bedrooms} BD - {item.bathrooms} BA -{" "}
+                                {item.features.slice(0, 2).join(" - ")}
                               </p>
                             </div>
                             <ChevronRight
@@ -355,7 +327,7 @@ export default function AriaPage() {
 
               <button
                 type="submit"
-                disabled={!input.trim()}
+                disabled={!input.trim() || isTyping}
                 className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#111111] text-white disabled:cursor-not-allowed disabled:opacity-60"
                 aria-label="Send"
               >
