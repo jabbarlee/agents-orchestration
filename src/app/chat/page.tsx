@@ -1,52 +1,74 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 type Message = {
   id: string;
-  role: 'user' | 'ai';
+  role: "user" | "assistant";
   content: string;
 };
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'ai', content: 'Hello! Ask me a question, and let\'s see if I hit the semantic cache.' }
+    {
+      id: "1",
+      role: "assistant",
+      content:
+        "Hello! Ask me a question, and I will respond via the OpenAI API route.",
+    },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // We will replace this with the real API call in Step 2
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // 1. Immediately show the user's message
-    const userMessage = input;
-    const newUserMsg: Message = { id: Date.now().toString(), role: 'user', content: userMessage };
-    setMessages((prev) => [...prev, newUserMsg]);
-    setInput('');
+    const userMessage = input.trim();
+    const newUserMsg: Message = {
+      id: Date.now().toString(),
+      role: "user",
+      content: userMessage,
+    };
+    const nextMessages = [...messages, newUserMsg];
+
+    setMessages(nextMessages);
+    setInput("");
     setIsLoading(true);
 
     try {
-      // 2. Call our Cloudflare + Upstash API Route
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: userMessage }),
+      const response = await fetch("/api/agents/aria/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: nextMessages.map((message) => ({
+            role: message.role,
+            content: message.content,
+          })),
+        }),
       });
 
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
       const data = await response.json();
+      const aiText: string =
+        data?.choices?.[0]?.message?.content ?? "No response returned.";
 
-      // 3. Optional: You can log this to see if you hit the cache or OpenAI!
-      console.log(`Response generated via: ${data.source}`); 
-
-      // 4. Show the AI's response in the UI
-      const newAiMsg: Message = { id: Date.now().toString(), role: 'ai', content: data.text };
+      const newAiMsg: Message = {
+        id: `${Date.now()}-assistant`,
+        role: "assistant",
+        content: aiText,
+      };
       setMessages((prev) => [...prev, newAiMsg]);
-
     } catch (error) {
       console.error("Failed to fetch response:", error);
-      const errorMsg: Message = { id: Date.now().toString(), role: 'ai', content: 'Sorry, I encountered an error connecting to the server.' };
+      const errorMsg: Message = {
+        id: `${Date.now()}-error`,
+        role: "assistant",
+        content: "Sorry, I encountered an error connecting to the server.",
+      };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
       setIsLoading(false);
@@ -58,12 +80,15 @@ export default function ChatPage() {
       {/* Chat History Area */}
       <div className="flex-1 overflow-y-auto p-4 space-y-6">
         {messages.map((m) => (
-          <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div 
+          <div
+            key={m.id}
+            className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div
               className={`max-w-[75%] rounded-2xl px-5 py-3 ${
-                m.role === 'user' 
-                  ? 'bg-blue-600 text-white rounded-br-none' 
-                  : 'bg-gray-100 text-gray-800 rounded-bl-none border border-gray-200'
+                m.role === "user"
+                  ? "bg-blue-600 text-white rounded-br-none"
+                  : "bg-gray-100 text-gray-800 rounded-bl-none border border-gray-200"
               }`}
             >
               {m.content}
@@ -90,8 +115,8 @@ export default function ChatPage() {
             className="flex-1 border rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-black"
             disabled={isLoading}
           />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={isLoading}
             className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
           >
