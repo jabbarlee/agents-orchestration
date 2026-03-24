@@ -145,7 +145,7 @@ export default function AriaPage() {
   };
 
   return (
-    <main className={`${inter.className} h-dvh w-full bg-[#F2F5F0]`}>
+    <main className={`${inter.className} h-dvh w-full bg-white/80`}>
       <div className="grid h-full w-full grid-cols-1 lg:grid-cols-2">
         <section
           aria-label="Luxury property image"
@@ -158,9 +158,9 @@ export default function AriaPage() {
           }}
         >
           <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-b from-transparent to-black/80 px-8 py-8 sm:px-12 sm:py-10">
-            <div className="mb-6 inline-flex w-fit items-center gap-2 bg-[#C9A96240] px-3.5 py-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#2D5A3D]" />
-              <span className="text-[11px] font-medium uppercase tracking-[2px] text-[#C9A962]">
+            <div className="mb-6 inline-flex w-fit items-center gap-2 bg-[#FFFFFF33] px-3.5 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#111111]" />
+              <span className="text-[11px] font-medium uppercase tracking-[2px] text-[#D4D4D4]">
                 AI-Powered Property Search
               </span>
             </div>
@@ -179,7 +179,7 @@ export default function AriaPage() {
             <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/15 pt-6">
               <div className="flex flex-col gap-1">
                 <span
-                  className={`${cormorant.className} text-[28px] leading-none font-medium text-[#C9A962]`}
+                  className={`${cormorant.className} text-[28px] leading-none font-medium text-[#D4D4D4]`}
                 >
                   2,400+
                 </span>
@@ -190,7 +190,7 @@ export default function AriaPage() {
 
               <div className="flex flex-col gap-1">
                 <span
-                  className={`${cormorant.className} text-[28px] leading-none font-medium text-[#C9A962]`}
+                  className={`${cormorant.className} text-[28px] leading-none font-medium text-[#D4D4D4]`}
                 >
                   $4.2B
                 </span>
@@ -201,7 +201,7 @@ export default function AriaPage() {
 
               <div className="flex flex-col gap-1">
                 <span
-                  className={`${cormorant.className} text-[28px] leading-none font-medium text-[#C9A962]`}
+                  className={`${cormorant.className} text-[28px] leading-none font-medium text-[#D4D4D4]`}
                 >
                   98%
                 </span>
@@ -213,30 +213,25 @@ export default function AriaPage() {
           </div>
         </section>
 
-        <section className="relative flex h-dvh min-h-0 w-full flex-col bg-[#F2F5F0]">
-          <header className="flex h-20 shrink-0 items-center justify-between border-b border-[#2D5A3D20] bg-white px-5 sm:px-8">
+        <section className="relative flex h-dvh min-h-0 w-full flex-col bg-white/70">
+          <header className="flex h-20 shrink-0 items-center justify-between border-b border-[#00000020] bg-white px-5 sm:px-8">
             <div className="flex items-center gap-3.5">
-              <div className="flex h-[42px] w-[42px] items-center justify-center bg-[#2D5A3D] text-white">
+              <div className="flex h-[42px] w-[42px] items-center justify-center bg-[#111111] text-white border border-[#111111] rounded-full">
                 <Building2 size={20} />
               </div>
               <div className="flex flex-col gap-0.5">
                 <span
-                  className={`${cormorant.className} text-[22px] leading-none font-medium text-[#1A2E1F]`}
+                  className={`text-[22px] leading-none font-medium text-[#111111]`}
                 >
                   Aria
                 </span>
-                <span className="text-xs text-[#5A7A60]">
+                <span className="text-xs text-[#525252]">
                   Real Estate Intelligence Agent
                 </span>
               </div>
             </div>
 
-            <div className="hidden items-center gap-2 sm:flex">
-              <span className="h-2 w-2 rounded-full bg-[#3A7D5C]" />
-              <span className="text-xs text-[#5A7A60]">Online</span>
-            </div>
-
-            <Ellipsis size={20} className="text-[#6B8F73]" />
+            <Ellipsis size={20} className="text-[#737373]" />
           </header>
 
           <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-7">
@@ -247,13 +242,13 @@ export default function AriaPage() {
                   className={`flex items-end gap-3 ${message.role === "user" ? "justify-end" : ""}`}
                 >
                   {message.role === "assistant" ? (
-                    <div className="flex h-8 w-8 items-center justify-center bg-[#2D5A3D] text-white">
+                    <div className="flex h-8 w-8 items-center justify-center bg-[#111111] text-white border border-[#111111] rounded-full">
                       <Building2 size={14} />
                     </div>
                   ) : null}
 
                   {message.role === "user" ? (
-                    <span className="text-[10px] text-[#6B8F73]">
+                    <span className="text-[10px] text-[#737373]">
                       {message.time}
                     </span>
                   ) : null}
@@ -261,15 +256,15 @@ export default function AriaPage() {
                   <div
                     className={
                       message.role === "assistant"
-                        ? "max-w-[360px] rounded-[0_16px_16px_16px] border border-[#2D5A3D25] bg-white px-[18px] py-[14px]"
-                        : "max-w-[300px] rounded-[16px_16px_0_16px] bg-[#2D5A3D] px-[18px] py-[14px]"
+                        ? "max-w-[420px]"
+                        : "max-w-[340px] rounded-[16px_16px_0_16px] bg-[#111111] px-[18px] py-[14px]"
                     }
                   >
                     <p
                       className={
                         message.role === "assistant"
-                          ? "text-[13px] leading-[1.6] text-[#243428]"
-                          : "text-[13px] leading-[1.6] font-medium text-white"
+                          ? "text-[15px] leading-[1.7] text-[#1f1f1f]"
+                          : "text-[15px] leading-[1.7] font-medium text-white"
                       }
                     >
                       {message.text}
@@ -282,20 +277,20 @@ export default function AriaPage() {
                             key={item.name}
                             type="button"
                             onClick={() => handlePropertySelect(item.name)}
-                            className={`flex w-full items-center gap-2.5 rounded-[6px] border px-3 py-2.5 text-left transition ${selectedProperty === item.name ? "border-[#2D5A3D] bg-[#E7EFE4]" : "border-[#C8D9C2] bg-[#F2F5F0]"}`}
+                            className={`flex w-full items-center gap-2.5 rounded-[6px] border px-3 py-2.5 text-left transition ${selectedProperty === item.name ? "border-[#111111] bg-[#E8E8E8]" : "border-[#D4D4D4] bg-[#F5F5F5]"}`}
                           >
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#2D5A3D]" />
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#111111]" />
                             <div className="flex-1">
-                              <p className="text-xs font-medium text-[#1A2E1F]">
+                              <p className="text-[13px] font-medium text-[#111111]">
                                 {item.name}
                               </p>
-                              <p className="text-[11px] text-[#5A7A60]">
+                              <p className="text-xs text-[#525252]">
                                 {item.details}
                               </p>
                             </div>
                             <ChevronRight
                               size={14}
-                              className="text-[#2D5A3D]"
+                              className="text-[#111111]"
                             />
                           </button>
                         ))}
@@ -304,7 +299,7 @@ export default function AriaPage() {
                   </div>
 
                   {message.role === "assistant" ? (
-                    <span className="text-[10px] text-[#6B8F73]">
+                    <span className="text-[10px] text-[#737373]">
                       {message.time}
                     </span>
                   ) : null}
@@ -313,15 +308,10 @@ export default function AriaPage() {
 
               {isTyping ? (
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center bg-[#2D5A3D] text-white">
+                  <div className="flex h-8 w-8 items-center justify-center bg-[#111111] text-white border border-[#111111] rounded-full animate-pulse">
                     <Building2 size={14} />
                   </div>
-                  <div className="flex items-center gap-1.5 rounded-[0_16px_16px_16px] border border-[#2D5A3D25] bg-white px-4 py-3">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#2D5A3D] opacity-90" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#2D5A3D] opacity-50" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#2D5A3D] opacity-20" />
-                  </div>
-                  <span className="text-[11px] text-[#6B8F73]">
+                  <span className="text-[13px] text-[#737373]">
                     Aria is analyzing listings...
                   </span>
                 </div>
@@ -331,16 +321,16 @@ export default function AriaPage() {
             </div>
           </div>
 
-          <footer className="shrink-0 border-t border-[#2D5A3D30] bg-[#F2F5F0] px-5 pt-4 pb-5 sm:px-8 sm:pb-6">
+          <footer className="shrink-0 border-t border-[#00000030] bg-[#F5F5F5] px-5 pt-4 pb-5 sm:px-8 sm:pb-6">
             <div className="mb-3 flex flex-wrap gap-2">
               {suggestions.map(({ icon: Icon, label }) => (
                 <button
                   key={label}
                   type="button"
                   onClick={() => handleSuggestion(label)}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#C8D9C2] bg-[#EBF0E8] px-3 py-1.5 text-[11px] text-[#5A7A60]"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#D4D4D4] bg-[#EFEFEF] px-3 py-1.5 text-[11px] text-[#525252]"
                 >
-                  <Icon size={12} className="text-[#2D5A3D]" />
+                  <Icon size={12} className="text-[#111111]" />
                   {label}
                 </button>
               ))}
@@ -350,8 +340,8 @@ export default function AriaPage() {
               <label className="sr-only" htmlFor="aria-chat-input">
                 Message input
               </label>
-              <div className="flex h-[52px] flex-1 items-center gap-2.5 rounded-full border border-[#C8D9C2] bg-white px-5">
-                <Search size={16} className="text-[#5A7A60]" />
+              <div className="flex h-[52px] flex-1 items-center gap-2.5 rounded-full border border-[#D4D4D4] bg-white px-5">
+                <Search size={16} className="text-[#525252]" />
                 <input
                   id="aria-chat-input"
                   ref={inputRef}
@@ -359,14 +349,14 @@ export default function AriaPage() {
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   placeholder="Ask about neighborhoods, prices, or schedule a tour..."
-                  className="w-full bg-transparent text-[13px] text-[#243428] outline-none placeholder:text-[#6B8F73]"
+                  className="w-full bg-transparent text-[13px] text-[#1f1f1f] outline-none placeholder:text-[#737373]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={!input.trim()}
-                className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#2D5A3D] text-white disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#111111] text-white disabled:cursor-not-allowed disabled:opacity-60"
                 aria-label="Send"
               >
                 <Send size={20} />
