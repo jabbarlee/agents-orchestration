@@ -2,11 +2,55 @@
 
 import { useState } from "react";
 
+type PropertyListing = {
+  id: string;
+  address: string;
+  location: string;
+  bedrooms: number;
+  bathrooms: number;
+  priceLabel: string;
+  features: string[];
+};
+
 type Message = {
   id: string;
   role: "user" | "assistant";
   content: string;
+  properties?: PropertyListing[];
 };
+
+function PropertyCard({ property }: { property: PropertyListing }) {
+  return (
+    <article className="w-full rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-900">
+            {property.address}
+          </h4>
+          <p className="mt-0.5 text-xs text-gray-500">{property.location}</p>
+        </div>
+        <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+          {property.priceLabel}
+        </span>
+      </div>
+
+      <p className="mt-3 text-xs text-gray-700">
+        {property.bedrooms} BD · {property.bathrooms} BA
+      </p>
+
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {property.features.map((feature) => (
+          <span
+            key={`${property.id}-${feature}`}
+            className="rounded-full bg-gray-100 px-2 py-0.5 text-[11px] text-gray-600"
+          >
+            {feature}
+          </span>
+        ))}
+      </div>
+    </article>
+  );
+}
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
@@ -53,13 +97,16 @@ export default function ChatPage() {
       }
 
       const data = await response.json();
-      const aiText: string =
-        data?.choices?.[0]?.message?.content ?? "No response returned.";
+      const aiText: string = data?.text ?? "No response returned.";
+      const properties: PropertyListing[] = Array.isArray(data?.properties)
+        ? data.properties
+        : [];
 
       const newAiMsg: Message = {
         id: `${Date.now()}-assistant`,
         role: "assistant",
         content: aiText,
+        properties,
       };
       setMessages((prev) => [...prev, newAiMsg]);
     } catch (error) {
@@ -84,14 +131,26 @@ export default function ChatPage() {
             key={m.id}
             className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
           >
-            <div
-              className={`max-w-[75%] rounded-2xl px-5 py-3 ${
-                m.role === "user"
-                  ? "bg-blue-600 text-white rounded-br-none"
-                  : "bg-gray-100 text-gray-800 rounded-bl-none border border-gray-200"
-              }`}
-            >
-              {m.content}
+            <div className="max-w-[75%]">
+              <div
+                className={`rounded-2xl px-5 py-3 ${
+                  m.role === "user"
+                    ? "bg-blue-600 text-white rounded-br-none"
+                    : "bg-gray-100 text-gray-800 rounded-bl-none border border-gray-200"
+                }`}
+              >
+                {m.content}
+              </div>
+
+              {m.role === "assistant" &&
+              m.properties &&
+              m.properties.length > 0 ? (
+                <div className="mt-3 space-y-2">
+                  {m.properties.map((property) => (
+                    <PropertyCard key={property.id} property={property} />
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         ))}
