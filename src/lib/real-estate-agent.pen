@@ -1,0 +1,1739 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "type": "frame",
+      "id": "rgGjc",
+      "x": 0,
+      "y": 0,
+      "name": "nitro: design system components",
+      "theme": {
+        "Mode": "Light"
+      },
+      "clip": true,
+      "width": 3200,
+      "height": 4200,
+      "fill": "$--background",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DIw3s",
+          "x": 2200,
+          "y": 3943,
+          "name": "Tooltip",
+          "context": "Small tooltip popup with text label displaying contextual help or description when hovering over UI elements.",
+          "reusable": true,
+          "clip": true,
+          "fill": "$--popover",
+          "cornerRadius": "$--radius-xs",
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "$--border"
+          },
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#0000000f",
+            "offset": {
+              "x": 0,
+              "y": 2
+            },
+            "blur": 3.5,
+            "spread": -1
+          },
+          "gap": 8,
+          "padding": [
+            6,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "n9TMF",
+              "name": "Tooltip Text",
+              "fill": "$--foreground",
+              "content": "Tooltip",
+              "lineHeight": 1.4285714285714286,
+              "fontFamily": "$--font-primary",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BDkqI",
+          "x": 340,
+          "y": 414,
+          "name": "Image Panel",
+          "metadata": {
+            "type": "unsplash",
+            "username": "thejonbear",
+            "link": "https://unsplash.com/@thejonbear",
+            "author": "Jonathan Ching"
+          },
+          "clip": true,
+          "width": "fill_container(720)",
+          "height": "fill_container(900)",
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1773407377322-fb2721bb99a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzQzNjc0MjB8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "fill"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "AsYHC",
+              "name": "Overlay",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 0,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#00000000",
+                    "position": 0
+                  },
+                  {
+                    "color": "#000000CC",
+                    "position": 1
+                  }
+                ]
+              },
+              "layout": "vertical",
+              "padding": [
+                40,
+                48
+              ],
+              "justifyContent": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uydAw",
+                  "name": "Badge",
+                  "fill": "#C9A96240",
+                  "gap": 8,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "cvRIR",
+                      "name": "badgeDot",
+                      "fill": "#2D5A3D",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "0fJ1i",
+                      "name": "badgeText",
+                      "fill": "#C9A962",
+                      "content": "AI-Powered Property Search",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "wTQGq",
+                  "name": "propTitle",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Find Your\nDream Home",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 52,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "itGlf",
+                  "name": "propSubtitle",
+                  "fill": "#FFFFFFB3",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Intelligent real estate guidance tailored to your lifestyle and investment goals.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "unIXq",
+                  "name": "statsRow",
+                  "width": "fill_container",
+                  "gap": 32,
+                  "padding": [
+                    24,
+                    0,
+                    0,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rMyvh",
+                      "name": "stat1",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Tfpo9",
+                          "name": "stat1Val",
+                          "fill": "#C9A962",
+                          "content": "2,400+",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 28,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oLMEd",
+                          "name": "stat1Label",
+                          "fill": "#FFFFFF80",
+                          "content": "Properties Listed",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MHvnW",
+                      "name": "stat2",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YOQFV",
+                          "name": "stat2Val",
+                          "fill": "#C9A962",
+                          "content": "$4.2B",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 28,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "aexIQ",
+                          "name": "stat2Label",
+                          "fill": "#FFFFFF80",
+                          "content": "Assets Managed",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "y6wbI",
+                      "name": "stat3",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "TRirc",
+                          "name": "stat3Val",
+                          "fill": "#C9A962",
+                          "content": "98%",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 28,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "O86Kp",
+                          "name": "stat3Label",
+                          "fill": "#FFFFFF80",
+                          "content": "Client Satisfaction",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OqB13",
+          "x": 1060,
+          "y": 414,
+          "name": "Chat Panel",
+          "width": "fill_container(720)",
+          "height": "fill_container(900)",
+          "fill": "#F2F5F0",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "kZmlg",
+              "x": 0,
+              "y": 0,
+              "name": "Chat Header",
+              "width": 720,
+              "height": 80,
+              "fill": "#FFFFFF",
+              "stroke": {
+                "align": "inside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#2D5A3D20"
+              },
+              "padding": [
+                0,
+                32
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "3MISF",
+                  "name": "headerLeft",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "digxy",
+                      "name": "avatarFrame",
+                      "width": 42,
+                      "height": 42,
+                      "fill": "#2D5A3D",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "OQoLK",
+                          "name": "avatarIcon",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "building-2",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vyFLG",
+                      "name": "headerTitles",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gApuj",
+                          "name": "headerTitle",
+                          "fill": "#1A2E1F",
+                          "content": "Aria",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 22,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wknMg",
+                          "name": "headerSub",
+                          "fill": "#5A7A60",
+                          "content": "Real Estate Intelligence Agent",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xRtpr",
+                  "name": "headerRight",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "atKzI",
+                      "name": "statusDot",
+                      "fill": "#3A7D5C",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "695re",
+                      "name": "statusText",
+                      "fill": "#5A7A60",
+                      "content": "Online",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon_font",
+                  "id": "PwhgA",
+                  "name": "menuIcon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "ellipsis",
+                  "iconFontFamily": "lucide",
+                  "fill": "#6B8F73"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VIY1X",
+              "x": 0,
+              "y": 80,
+              "name": "Chat Messages",
+              "width": 720,
+              "height": 692,
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tvZ83",
+                  "name": "Agent Msg 1",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dbSSd",
+                      "name": "agentAvatar1",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#2D5A3D",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "lR1QR",
+                          "name": "agentAvatarIcon1",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "building-2",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EBF0E8"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hLYqa",
+                      "name": "agentBubble1",
+                      "width": 320,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": [
+                        0,
+                        16,
+                        16,
+                        16
+                      ],
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#2D5A3D25"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        14,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "l0kV3",
+                          "name": "agentBubbleText1",
+                          "fill": "#243428",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Good morning! I'm Aria, your personal real estate intelligence agent. I have access to thousands of luxury listings across prime markets. How may I assist you today?",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "a005d",
+                      "name": "agentTime1",
+                      "fill": "#6B8F73",
+                      "content": "9:41 AM",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nL97P",
+                  "name": "User Msg 1",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "justifyContent": "end",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i1K3X",
+                      "name": "userTime1",
+                      "fill": "#6B8F73",
+                      "content": "9:43 AM",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9rnFz",
+                      "name": "userBubble1",
+                      "width": 300,
+                      "fill": "#2D5A3D",
+                      "cornerRadius": [
+                        16,
+                        16,
+                        0,
+                        16
+                      ],
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        14,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UGyok",
+                          "name": "userBubbleText1",
+                          "fill": "#FFFFFF",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "I'm looking for a 4-bedroom modern home in Beverly Hills with a pool and mountain views. Budget is around $8–12 million.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lDX6i",
+                  "name": "Agent Msg 2",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "IBIgs",
+                      "name": "agentAvatar2",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#2D5A3D",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "UF6FL",
+                          "name": "agentAvatarIcon2",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "building-2",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Q7NND",
+                      "name": "agentBubble2",
+                      "width": 360,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": [
+                        0,
+                        16,
+                        16,
+                        16
+                      ],
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#2D5A3D25"
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        14,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "RmkZ9",
+                          "name": "agentBubbleText2",
+                          "fill": "#243428",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Excellent taste. I've found 3 exceptional properties matching your criteria in Beverly Hills and Bel Air. Here's a curated summary:",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "CfqvY",
+                          "name": "propList",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "FZq6a",
+                              "name": "propItem1",
+                              "width": "fill_container",
+                              "fill": "#F2F5F0",
+                              "cornerRadius": 6,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "#C8D9C2"
+                              },
+                              "gap": 10,
+                              "padding": [
+                                10,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "e0cvn",
+                                  "name": "propDot1",
+                                  "fill": "#2D5A3D",
+                                  "width": 6,
+                                  "height": 6
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "4Q4oN",
+                                  "name": "propText1",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 2,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "dOB0J",
+                                      "name": "propName1",
+                                      "fill": "#1A2E1F",
+                                      "content": "1240 Laurel Way — $9.8M",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "zFWZU",
+                                      "name": "propDesc1",
+                                      "fill": "#5A7A60",
+                                      "content": "5 BD · 6 BA · Pool · Canyon Views",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 11,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "icon_font",
+                                  "id": "M7wwH",
+                                  "name": "propArrow1",
+                                  "width": 14,
+                                  "height": 14,
+                                  "iconFontName": "chevron-right",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#2D5A3D"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "9H0Sc",
+                              "name": "propItem2",
+                              "width": "fill_container",
+                              "fill": "#F2F5F0",
+                              "cornerRadius": 6,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "#C8D9C2"
+                              },
+                              "gap": 10,
+                              "padding": [
+                                10,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "T8qrO",
+                                  "name": "propDot2",
+                                  "fill": "#2D5A3D",
+                                  "width": 6,
+                                  "height": 6
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "up0mm",
+                                  "name": "propText2",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 2,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "INHmn",
+                                      "name": "propName2",
+                                      "fill": "#1A2E1F",
+                                      "content": "720 N Rexford Dr — $11.2M",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "vzJfI",
+                                      "name": "propDesc2",
+                                      "fill": "#5A7A60",
+                                      "content": "4 BD · 5 BA · Infinity Pool · City Views",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 11,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "icon_font",
+                                  "id": "GR9Xc",
+                                  "name": "propArrow2",
+                                  "width": 14,
+                                  "height": 14,
+                                  "iconFontName": "chevron-right",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#2D5A3D"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n9aX7",
+                              "name": "propItem3",
+                              "width": "fill_container",
+                              "fill": "#F2F5F0",
+                              "cornerRadius": 6,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "#C8D9C2"
+                              },
+                              "gap": 10,
+                              "padding": [
+                                10,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "V4MgK",
+                                  "name": "propDot3",
+                                  "fill": "#2D5A3D",
+                                  "width": 6,
+                                  "height": 6
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "fJBlf",
+                                  "name": "propText3",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 2,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "2wg3E",
+                                      "name": "propName3",
+                                      "fill": "#1A2E1F",
+                                      "content": "9955 Hidden Valley Rd — $8.5M",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "VGhqR",
+                                      "name": "propDesc3",
+                                      "fill": "#5A7A60",
+                                      "content": "4 BD · 4 BA · Heated Pool · Mountain Views",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 11,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "icon_font",
+                                  "id": "yjSUl",
+                                  "name": "propArrow3",
+                                  "width": 14,
+                                  "height": 14,
+                                  "iconFontName": "chevron-right",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#2D5A3D"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Me3jR",
+                      "name": "agentTime2",
+                      "fill": "#6B8F73",
+                      "content": "9:44 AM",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iScKS",
+                  "name": "Typing Indicator",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CzZh9",
+                      "name": "typingAvatar",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#2D5A3D",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "sGDSQ",
+                          "name": "typingAvatarIcon",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "building-2",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OV3P4",
+                      "name": "typingBubble",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": [
+                        0,
+                        16,
+                        16,
+                        16
+                      ],
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#2D5A3D25"
+                      },
+                      "gap": 5,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "sloVw",
+                          "name": "dot1",
+                          "opacity": 0.9,
+                          "fill": "#2D5A3D",
+                          "width": 6,
+                          "height": 6
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "MTabz",
+                          "name": "dot2",
+                          "opacity": 0.5,
+                          "fill": "#2D5A3D",
+                          "width": 6,
+                          "height": 6
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "njxzm",
+                          "name": "dot3",
+                          "opacity": 0.2,
+                          "fill": "#2D5A3D",
+                          "width": 6,
+                          "height": 6
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "k2cPn",
+                      "name": "typingLabel",
+                      "fill": "#6B8F73",
+                      "content": "Aria is analyzing listings…",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eWMZB",
+              "x": 0,
+              "y": 772,
+              "name": "Input Bar",
+              "width": 720,
+              "stroke": {
+                "align": "inside",
+                "thickness": {
+                  "top": 1
+                },
+                "fill": "#2D5A3D30"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                16,
+                24,
+                24,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HIDQx",
+                  "name": "Suggestions",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vvqzX",
+                      "name": "sug1",
+                      "fill": "#EBF0E8",
+                      "cornerRadius": 20,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C8D9C2"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "2vttR",
+                          "name": "sug1Icon",
+                          "width": 12,
+                          "height": 12,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#2D5A3D"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qCSNt",
+                          "name": "sug1Text",
+                          "fill": "#5A7A60",
+                          "content": "Show map view",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PZgSd",
+                      "name": "sug2",
+                      "fill": "#EBF0E8",
+                      "cornerRadius": 20,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C8D9C2"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "sjvYP",
+                          "name": "sug2Icon",
+                          "width": 12,
+                          "height": 12,
+                          "iconFontName": "calendar",
+                          "iconFontFamily": "lucide",
+                          "fill": "#2D5A3D"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hh7sN",
+                          "name": "sug2Text",
+                          "fill": "#5A7A60",
+                          "content": "Schedule a tour",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2hK7J",
+                      "name": "sug3",
+                      "fill": "#EBF0E8",
+                      "cornerRadius": 20,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C8D9C2"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "qopf0",
+                          "name": "sug3Icon",
+                          "width": 12,
+                          "height": 12,
+                          "iconFontName": "trending-up",
+                          "iconFontFamily": "lucide",
+                          "fill": "#2D5A3D"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Y1xVP",
+                          "name": "sug3Text",
+                          "fill": "#5A7A60",
+                          "content": "Compare prices",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GCD7E",
+                  "name": "Input Row",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dcKuD",
+                      "name": "inputField",
+                      "width": "fill_container",
+                      "height": 52,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 26,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C8D9C2"
+                      },
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        20
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "kVoOT",
+                          "name": "inputIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "search",
+                          "iconFontFamily": "lucide",
+                          "fill": "#5A7A60"
+                        },
+                        {
+                          "type": "text",
+                          "id": "5Dgaa",
+                          "name": "inputText",
+                          "fill": "#6B8F73",
+                          "content": "Ask about neighborhoods, prices, or schedule a tour…",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0kTlV",
+                      "name": "sendBtn",
+                      "width": 52,
+                      "height": 52,
+                      "fill": "#2D5A3D",
+                      "cornerRadius": 26,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "vmZYY",
+                          "name": "sendIcon",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "send",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "Mode": [
+      "Light",
+      "Dark"
+    ]
+  },
+  "variables": {
+    "--sidebar": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#2E2F33",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5B5F66"
+        },
+        {
+          "value": "#A0A6B2",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0F5FFE"
+        },
+        {
+          "value": "#0F5FFE",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#002266"
+        },
+        {
+          "value": "#f5f5f5",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E2E5"
+        },
+        {
+          "value": "#414347",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#333333"
+        },
+        {
+          "value": "#1F1F1F",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F5F5F5"
+        },
+        {
+          "value": "#F5F5F5",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E2E5"
+        },
+        {
+          "value": "#414347",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--background": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F5F5F5"
+        },
+        {
+          "value": "#252629",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#333333"
+        },
+        {
+          "value": "#F5F5F5",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#1F1F1F",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#1F1F1F",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0F5FFE"
+        },
+        {
+          "value": "#0F5FFE",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#F5F5F5",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#333333"
+        },
+        {
+          "value": "#414347",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--secondary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5B5F66"
+        },
+        {
+          "value": "#A0A6B2",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#252629",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#F2F3F0",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--destructive": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#A62911"
+        },
+        {
+          "value": "#A62911",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E2E5"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--input": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#9DA4B3"
+        },
+        {
+          "value": "#414347",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E2E5"
+        },
+        {
+          "value": "#666666",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--white": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--black": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "--font-primary": {
+      "type": "string",
+      "value": "Roboto"
+    },
+    "--font-secondary": {
+      "type": "string",
+      "value": [
+        {
+          "value": "Roboto Mono",
+          "theme": {
+            "Mode": "Light"
+          }
+        },
+        {
+          "value": "Roboto Mono",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--radius-none": {
+      "type": "number",
+      "value": 0
+    },
+    "--radius-pill": {
+      "type": "number",
+      "value": 999
+    },
+    "--color-success": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#DDF0C9"
+        },
+        {
+          "value": "#4A4E49",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-success-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#1A3300"
+        },
+        {
+          "value": "#D1F0C9",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-warning": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F5E6D7"
+        },
+        {
+          "value": "#4F4E4C",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-warning-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#663300"
+        },
+        {
+          "value": "#F5E1CE",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-error": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F5D7F3"
+        },
+        {
+          "value": "#57474A",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-error-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#66005E"
+        },
+        {
+          "value": "#F5C4CC",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-info": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9D6F0"
+        },
+        {
+          "value": "#3C4352",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-info-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#001133"
+        },
+        {
+          "value": "#B2CCFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--radius-xs": {
+      "type": "number",
+      "value": 2
+    },
+    "--destructive-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    }
+  }
+}
